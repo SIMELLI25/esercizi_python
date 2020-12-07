@@ -18,9 +18,7 @@ while True:
             listpar.append(lett)        
         count1 += 1
         count2 += 1
-print(listpar)
 stringa = ""
 for x in listpar:
-    str(x)
-    stringa = stringa, x
+    stringa += str(x)
 print(stringa)
