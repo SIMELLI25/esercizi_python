@@ -8,15 +8,20 @@ input("ES 29")
 #Scrivi un programma che legga un reddito da tastiera e calcoli l'importo dell'imposta sul reddito e la tassazione media.
 list_limiti = [15000, 28000, 55000, 75000, 1000000000000]
 list_aliquota = [23, 27, 38, 41, 43]
-dict_redd = {}
 reddito = int(input("Inserisci il tuo reddito: "))
 imposta = 0
 for i in range(len(list_limiti)):
     if i == 0:
-        tassazione = list_aliquota[i]*list_limiti[i]/100
+        if reddito <= list_limiti[i]:
+            tassazione = list_aliquota[i]*reddito/100
+            imposta += tassazione
+            break
+        else:
+            tassazione = list_aliquota[i]*list_limiti[i]/100
+            imposta += tassazione
     else:
         tassazione = list_aliquota[i]*(list_limiti[i]-list_limiti[i-1])/100
-    imposta += tassazione
+        imposta += tassazione
     if reddito > list_limiti[i] and reddito <= list_limiti[i+1]:
         reddito -= list_limiti[i]
         tassazione = reddito*list_aliquota[i+1]/100
