@@ -24,7 +24,6 @@ class Atleta:
             print("L'atleta", self.surname, self.name, "ha svolto la visita medica")
     def effettua_visita(self):
         self.visitaMedica = True
-        print("L'atleta", self.surname, self.name, "ha svolto la visita medica")
     def team(self, name_team):
         self.name_team = name_team
         print("L'atleta", self.surname, self.name, "gioca nella squadra", self.name_team)
@@ -35,8 +34,11 @@ def main():
     weight = int(input("Inserisci peso: "))
     height = int(input("Inserisci altezza: "))
     team = input("Inserisci squadra: ")
+    
     atleta1 = Atleta(name, surname, age, weight, height)
+    visita = input("Ha svolto la visita medica? ")
+    if visita == "si" or visita == "SI":
+        atleta1.effettua_visita()
     atleta1.informations()
     atleta1.team(team)
-    atleta1.effettua_visita()
 main()
