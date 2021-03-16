@@ -60,12 +60,12 @@ class Field():
         print(self.wall, end = "")
       print()
 
-weight = 5
+width = 5
 height = 5
 nickname = input("Inserire nome: ")
 s = Entity(nickname, 0, 0)
 m = Entity("Minotauro", 0, height-1)
-field = Field(weight, height)
+field = Field(width, height)
 field.entities.append(s)
 field.entities.append(m)
 
@@ -78,9 +78,9 @@ while True:
     print("1. sinistra")
     print("2. destra")
     move = int(input("Digita: "))
-    if move == 1 and s.x > 0 and s.x <= weight-1:
+    if move == 1 and s.x > 0 and s.x <= width-1:
       s.move_left()
-    elif move == 2 and s.x >= 0 and s.x < weight-1:
+    elif move == 2 and s.x >= 0 and s.x < width-1:
       s.move_right()
 
   elif field.wall_user == list_walls[1].replace(" ", "x"):
@@ -94,9 +94,9 @@ while True:
 
   q = randint(0, 1)
   if field.wall_mino == list_walls[0].replace(" ", "#"):
-    if q == 0 and m.x > 0 and m.x <= weight-1:
+    if q == 0 and m.x > 0 and m.x <= width-1:
       m.move_left()
-    elif q == 1 and m.x >= 0 and m.x < weight-1:
+    elif q == 1 and m.x >= 0 and m.x < width-1:
       m.move_right()
   elif field.wall_mino == list_walls[1].replace(" ", "#"):
     if q == 0 and m.y >= 0 and m.y < height-1:
@@ -104,10 +104,10 @@ while True:
     elif q == 1 and m.y > 0 and m.y <= height-1:
       m.move_up()
   print()
-  if m.x == weight-1 and m.y == height-1:
+  if m.x == width-1 and m.y == height-1:
     m.x = 0
     m.y = height-1
-  if s.x == weight-1 and s.y == height-1:
+  if s.x == width-1 and s.y == height-1:
     print("Complimenti", nickname, "hai completato il labirinto evitando il minotauro!")
     print("Hai completato il labirinto in", count, "mosse")
     break
