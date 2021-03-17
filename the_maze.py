@@ -73,6 +73,7 @@ count = 0
 
 while True:
   count += 1
+  system("cls")
   field.draw()
   if field.wall_user == list_walls[0].replace(" ", "x"):
     print("1. sinistra")
@@ -103,6 +104,7 @@ while True:
       m.move_down()
     elif q == 1 and m.y > 0 and m.y <= height-1:
       m.move_up()
+
   print()
   if m.x == width-1 and m.y == height-1:
     m.x = 0
